@@ -1,4 +1,4 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The documentation is published at [Github Pages](https://ngolin.github.io/reactant-template/)
 
 ## Available Scripts
 
@@ -27,18 +27,65 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
 ## Learn More
 
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+## Reproduce
+
+[Create React App](https://facebook.github.io/create-react-app/docs/adding-typescript)
+
+```bash
+$ yarn create react-app reactant-template --typescript
+```
+
+[Add `antd`](https://ant.design/docs/react/use-in-typescript-cn)
+
+```bash
+$ yarn add antd
+$ yarn add react-app-rewired customize-cra
+$ yarn add babel-plugin-import
+$ yarn add less less-loader
+```
+
+Edit `package.json`
+
+```
+"scripts": {
+-   "start": "react-scripts start",
++   "start": "react-app-rewired start",
+-   "build": "react-scripts build",
++   "build": "react-app-rewired build",
+-   "test": "react-scripts test",
++   "test": "react-app-rewired test"
+-   "eject": "react-scripts eject"
+}
+```
+
+Add `react-router-dom`
+
+```bash
+$ yarn add react-router-dom @types/react-router-dom
+```
+
+Edit `package.json`
+
+```
++ "homepage": "https://pro.ngolin.com/",
+```
+
+## Trouble Shooting
+
+Ubuntu `System limit for number of file watchers reached`
+
+```bash
+$ echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
+```
+
+git default editor
+
+```bash
+$ export EDITOR=vim
+```
