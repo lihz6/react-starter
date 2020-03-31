@@ -2,6 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import * as serviceWorker from './serviceWorker';
 
+import { ConfigProvider } from 'antd';
+import zh_CN from 'antd/es/locale/zh_CN';
+
 import './_sass/reset.scss';
 import Context from '_base/Context';
 import renderRouter from './pages';
@@ -10,7 +13,9 @@ import './_sass/cover.scss';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Context>{renderRouter}</Context>
+    <ConfigProvider locale={zh_CN}>
+      <Context>{renderRouter}</Context>
+    </ConfigProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

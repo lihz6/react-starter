@@ -1,0 +1,17 @@
+@import '~_sass/vars';
+
+// $color: theme color:
+// $color-{white,black}-{1..9}0: lighten or darken
+// $color-font-head: heading color
+// $color-font: text main color
+// $color-font-gray: text secondary color
+// $color-border: border color
+// $color-background: background color
+// $color-{fail,okay,warn,info,dead}: status colors
+// `box-shadow`: $box-shadow
+
+.menu-view {
+  &-main {
+    padding: 8px;
+  }
+}

@@ -60,3 +60,7 @@ body {
     opacity: 1;
   }
 }
+
+.ant-form-item:last-child {
+  margin-bottom: 0;
+}

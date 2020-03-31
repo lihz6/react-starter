@@ -4,7 +4,9 @@ const fs = require('fs');
 
 const {
   addWebpackResolve,
+  fixBabelImports,
   addBabelPlugin,
+  addLessLoader,
   override,
 } = require('customize-cra');
 
@@ -88,8 +90,32 @@ const replacer = {
   },
 };
 
+function modifyVars() {
+  if (!fs.existsSync('src/_sass/_antd.scss')) {
+    return {};
+  }
+  const text = fs.readFileSync('src/_sass/_antd.scss', { encoding: 'utf-8' });
+
+  const reduce = (text, data) => {
+    const match = /^\$([-a-z0-9]+): *(.+);$/im.exec(text);
+    if (!match) return data;
+    data[`@${match[1]}`] = match[2];
+    return reduce(text.slice(match.index + match[0].length), data);
+  };
+  return reduce(text, {});
+}
+
 module.exports = override(
   addBabelPlugin([require('./dev/plugins/replace'), replacer]),
+  fixBabelImports('antd', {
+    libraryName: 'antd',
+    libraryDirectory: 'es',
+    style: true,
+  }),
+  addLessLoader({
+    javascriptEnabled: true,
+    modifyVars: modifyVars(),
+  }),
   addWebpackResolve({
     extensions: ['.js', '.jsx', '.ts', '.tsx'],
   })
