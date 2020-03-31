@@ -31,7 +31,9 @@
   "scripts": {
     "start": "react-app-rewired start",
     "build": "react-app-rewired build",
-    "test": "react-app-rewired test"
+    "test": "react-app-rewired test",
+    "view": "node dev/coders/view",
+    "page": "node dev/coders/page"
   },
   "eslintConfig": {
     "extends": "react-app"

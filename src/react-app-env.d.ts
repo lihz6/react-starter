@@ -1,6 +1,8 @@
 /// <reference types="react-scripts" />
 
 declare const APP_API_PATH_PREFIX: string;
+declare const APP_APP_STATUS: string;
+declare const APP_ORIGIN: string;
 
 declare const ROUTER_BASENAME: string;
 

@@ -1,0 +1,62 @@
+@import './vars';
+
+body {
+  background-color: $color-background;
+}
+
+#root {
+  width: 100vw;
+  height: 100vh;
+  min-width: 720px;
+  min-height: 480px;
+}
+
+// margin-top between siblings
+.-glob-smtop {
+  & + & {
+    margin-top: 16px;
+  }
+}
+
+.-glob-h100 {
+  height: 100%;
+}
+
+.-glob-box-shadow {
+  box-shadow: $box-shadow;
+}
+
+.-glob-occupied {
+  width: 100%;
+  height: 100%;
+}
+
+.-glob-centered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.-glob-reversed {
+  background-color: $color;
+}
+
+@keyframes popup {
+  from {
+    transform: scale(0);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
