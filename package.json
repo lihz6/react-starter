@@ -42,6 +42,8 @@
     ]
   },
   "devDependencies": {
+    "husky": "^4.2.3",
+    "lint-staged": "^10.1.0",
     "prettier": "^2.0.2"
   },
   "prettier": {
@@ -51,5 +53,15 @@
     "trailingComma": "es5",
     "jsxBracketSameLine": true,
     "arrowParens": "avoid"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{ts,tsx,js,jsx,css,scss,json,html,md}": [
+      "prettier --write"
+    ]
   }
 }
